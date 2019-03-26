@@ -1,7 +1,32 @@
+# version of docker compose formate
 version: '3'
 
+#
 services:
   product-services:
+    # what to build
     build: ./product
+    # Can have as many as you want! each start with -
     volumes:
       - ./product:/usr/src/app
+    # Like volumes you can do the same!
+    ports:
+      - 5001:80
+
+
+
+  # This is building a website as a services!
+
+  website:
+    image: php:apache
+    volumes: 
+      - ./website:/var/www/html
+    ports:
+      - 5000:80
+    # The website depends on the product service created early
+    depends_on:
+      - products-service
+
+# command you use -> docker-compose up
+
+#done
