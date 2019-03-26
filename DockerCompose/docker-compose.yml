@@ -28,5 +28,4 @@ services:
       - products-service
 
 # command you use -> docker-compose up
-
-#done
+#making a change to test new bash function
